@@ -1,26 +1,25 @@
-package com.example.jobapplication.job;
+package com.example.jobapplication.company;
 
-import com.example.jobapplication.company.Company;
+import com.example.jobapplication.job.Job;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
+
+import java.util.List;
 @Entity
-@Table(name="job_table")
 @AllArgsConstructor
 @NoArgsConstructor
 @Getter
 @Setter
-public class Job {
+public class Company {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
-    private String title;
+    private String name;
     private String description;
-    private String minSalary;
-    private String maxSalary;
-    private String location;
-    @ManyToOne
-    private Company company;
+    @OneToMany(mappedBy = "company")
+    private List<Job> jobs;
+
 }
