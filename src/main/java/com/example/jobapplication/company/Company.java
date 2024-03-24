@@ -1,6 +1,7 @@
 package com.example.jobapplication.company;
 
 import com.example.jobapplication.job.Job;
+import com.example.jobapplication.review.Review;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -21,5 +22,7 @@ public class Company {
     private String description;
     @OneToMany(mappedBy = "company")
     private List<Job> jobs;
+    @OneToMany(mappedBy = "company")
+    private List<Review> reviews;
 
 }
