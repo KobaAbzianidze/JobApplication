@@ -1,0 +1,11 @@
+version: '3.8'
+
+services:
+  postgresdb:
+    image: postgres:latest
+    ports:
+      - '5431:5432'
+    environment:
+        - POSTGRES_PASSWORD=db
+        - POSTGRES_USER=123
+        - POSTGRES_DB=jobapp
